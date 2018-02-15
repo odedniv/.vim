@@ -34,7 +34,7 @@ set listchars=tab:>~,trail:~
 set splitbelow
 set splitright
 
-set scrolloff=5
+set scrolloff=3
 
 map gb :wprevious<CR>
 map gn :wnext<CR>
@@ -51,14 +51,14 @@ set undofile
 
 " Theme
 
-set background=dark
 colorscheme onedark
 let g:gruvbox_contrast_dark = 'hard'
 
 " Plugin configurations
 
-set wildignore+=*/tmp/*,*/node_modules/*
+set wildignore+=*/tmp/*,*/node_modules/*,*/.eggs/*
 let g:ctrlp_match_window = 'max:20'
+let g:ctrlp_show_hidden = 1
 
 nnoremap ,, :CtrlP<CR>
 nnoremap ,. :CtrlPClearCache<CR>:CtrlP<CR>
@@ -66,15 +66,9 @@ nnoremap ,d :diffupdate<CR>
 nnoremap ,u :UndotreeToggle<CR>
 nnoremap ,w :%s/\s\+$//<CR>
 
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = 2
-let g:jedi#smart_auto_mappings = 0 " disable 'from X ' automatically typing 'import'
-
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
 " File type patches
 
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 au BufNewFile,BufRead *.jbuilder setf ruby
 au BufNewFile,BufRead *.json.jbuilder setf ruby
 au BufNewFile,BufRead *.json setf javascript
@@ -86,7 +80,18 @@ au BufNewFile,BufRead *.html.slim setf slim
 " W503: line ending before operator
 " E261: two spaces before inline comment
 " E241: multiple spaces after ':' (formatted dict)
-let g:ale_python_flake8_args="--ignore=E501,W503,E261,E241"
+" E272: multiple spaces before keyword (formatted dict)
+let g:ale_python_flake8_args="--ignore=E501,W503,E261,E241,E272"
+
+let g:ale_javascript_eslint_options="--parser-options=ecmaVersion:6"
+
+" Language configuration
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = 2
+let g:jedi#smart_auto_mappings = 0 " disable 'from X ' automatically typing 'import'
+
+let g:JavaComplete_ImportSortType = 'packageName'
 
 let g:ale_ruby_rubocop_options="--except "
   + "Metrics/BlockLength,"
