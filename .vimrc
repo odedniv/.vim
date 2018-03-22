@@ -76,14 +76,17 @@ au BufNewFile,BufRead *.slim setf slim
 au BufNewFile,BufRead *.html.slim setf slim
 
 " Lint
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
 " E501: line too long
 " W503: line ending before operator
 " E261: two spaces before inline comment
 " E241: multiple spaces after ':' (formatted dict)
 " E272: multiple spaces before keyword (formatted dict)
 let g:ale_python_flake8_args="--ignore=E501,W503,E261,E241,E272"
-
-let g:ale_javascript_eslint_options="--parser-options=ecmaVersion:6"
 
 " Language configuration
 let g:jedi#popup_on_dot = 0
@@ -102,3 +105,5 @@ let g:ale_ruby_rubocop_options="--except "
   + "Style/StringLiterals,"
   + "Style/TrailingCommaInLiteral,"
   + "Style/WordArray"
+
+let g:ale_javascript_eslint_options="--config ".$HOME."/.vim/.eslintrc.yml"
