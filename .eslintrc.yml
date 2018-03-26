@@ -5,14 +5,13 @@ env:
   node: true
 extends: 'eslint:recommended'
 parserOptions:
-  ecmaFeatures:
-    experimentalObjectRestSpread: true
-    jsx: true
+  ecmaVersion: 2017
   sourceType: module
 rules:
   indent:
     - error
     - 2
+    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
