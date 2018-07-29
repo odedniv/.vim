@@ -3,6 +3,7 @@ env:
   commonjs: true
   es6: true
   node: true
+  mocha: true
 extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 2017
@@ -10,18 +11,9 @@ parserOptions:
 plugins:
   - mocha
 rules:
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
-  linebreak-style:
-    - error
-    - unix
-  semi:
-    - error
-    - always
+  indent: [error, 2, SwitchCase: 1]
+  linebreak-style: [error, unix]
+  semi: [error, always]
   no-console: off
-  eqeqeq:
-    - error
-    - always
+  eqeqeq: [error, always]
   mocha/no-exclusive-tests: error
