@@ -86,7 +86,7 @@ let g:ale_linters = {
 " E261: two spaces before inline comment
 " E241: multiple spaces after ':' (formatted dict)
 " E272: multiple spaces before keyword (formatted dict)
-let g:ale_python_flake8_args="--ignore=E501,W503,E261,E241,E272"
+let g:ale_python_flake8_args = "--ignore=E501,W503,E261,E241,E272"
 
 " Language configuration
 let g:jedi#popup_on_dot = 0
@@ -96,7 +96,7 @@ let g:jedi#smart_auto_mappings = 0 " disable 'from X ' automatically typing 'imp
 
 let g:JavaComplete_ImportSortType = 'packageName'
 
-let g:ale_ruby_rubocop_options="--except "
+let g:ale_ruby_rubocop_options = "--except "
   + "Metrics/BlockLength,"
   + "Metrics/LineLength,"
   + "Style/MutableConstant,"
@@ -106,4 +106,8 @@ let g:ale_ruby_rubocop_options="--except "
   + "Style/TrailingCommaInLiteral,"
   + "Style/WordArray"
 
-let g:ale_javascript_eslint_options="--config ".$HOME."/.vim/.eslintrc.yml"
+let g:ale_javascript_eslint_options = "--config ".$HOME."/.vim/.eslintrc.yml"
+
+let g:go_metalinter_autosave = 1
+let g:go_gocode_unimported_packages = 1
+let g:go_fmt_command = $HOME."/go/bin/goreturns"

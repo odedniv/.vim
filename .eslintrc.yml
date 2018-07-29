@@ -7,6 +7,8 @@ extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 2017
   sourceType: module
+plugins:
+  - mocha
 rules:
   indent:
     - error
@@ -22,3 +24,4 @@ rules:
   eqeqeq:
     - error
     - always
+  mocha/no-exclusive-tests: error
