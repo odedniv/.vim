@@ -12,8 +12,12 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 Plug 'davidhalter/jedi-vim' " Python autocomplete
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tmhedberg/SimpylFold' " Python folding
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'fatih/vim-go'
+Plug 'OrangeT/vim-csharp'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'webastien/vim-ctags'
 
 call plug#end()
 
@@ -35,6 +39,7 @@ set splitbelow
 set splitright
 
 set scrolloff=3
+set nofoldenable " prevent folding on start
 
 map gb :wprevious<CR>
 map gn :wnext<CR>
@@ -86,7 +91,7 @@ let g:ale_linters = {
 " E261: two spaces before inline comment
 " E241: multiple spaces after ':' (formatted dict)
 " E272: multiple spaces before keyword (formatted dict)
-let g:ale_python_flake8_args = "--ignore=E501,W503,E261,E241,E272"
+let g:ale_python_flake8_options = "--ignore=E501,W503,E261,E241,E272"
 
 " Language configuration
 let g:jedi#popup_on_dot = 0
