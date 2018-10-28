@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive' " Git
+Plug 'junegunn/vim-easy-align'
 "Plug 'tpope/vim-sleuth'
 " Theme
 Plug 'joshdick/onedark.vim'
@@ -14,7 +15,7 @@ Plug 'davidhalter/jedi-vim' " Python autocomplete
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tmhedberg/SimpylFold' " Python folding
 Plug 'artur-shaik/vim-javacomplete2'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'webastien/vim-ctags'
@@ -41,8 +42,10 @@ set splitright
 set scrolloff=3
 set nofoldenable " prevent folding on start
 
+" shortcuts
 map gb :wprevious<CR>
 map gn :wnext<CR>
+nnoremap ,w :%s/\s\+$//<CR>
 
 if !isdirectory($HOME."/.vim")
 	call mkdir($HOME."/.vim", "", 0770)
@@ -69,7 +72,9 @@ nnoremap ,, :CtrlP<CR>
 nnoremap ,. :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap ,d :diffupdate<CR>
 nnoremap ,u :UndotreeToggle<CR>
-nnoremap ,w :%s/\s\+$//<CR>
+
+xmap ga <Plug>(EasyAlign) " Start interactive EasyAlign in visual mode (e.g. vipga)
+nmap ga <Plug>(EasyAlign) " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 
 " File type patches
 
@@ -113,6 +118,5 @@ let g:ale_ruby_rubocop_options = "--except "
 
 let g:ale_javascript_eslint_options = "--config ".$HOME."/.vim/.eslintrc.yml"
 
-let g:go_metalinter_autosave = 1
 let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = $HOME."/go/bin/goreturns"
