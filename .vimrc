@@ -17,7 +17,6 @@ Plug 'tmhedberg/SimpylFold' " Python folding
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'OrangeT/vim-csharp'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'webastien/vim-ctags'
 
 call plug#end()
@@ -35,6 +34,7 @@ set nowrap
 
 set list
 set listchars=tab:>~,trail:~
+set iskeyword+=-
 
 set splitbelow
 set splitright
@@ -88,7 +88,7 @@ au BufNewFile,BufRead *.html.slim setf slim
 " Lint
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\ 'javascript': ['eslint'],
 \}
 
 " E501: line too long
@@ -96,7 +96,8 @@ let g:ale_linters = {
 " E261: two spaces before inline comment
 " E241: multiple spaces after ':' (formatted dict)
 " E272: multiple spaces before keyword (formatted dict)
-let g:ale_python_flake8_options = "--ignore=E501,W503,E261,E241,E272"
+" E402: module level import not at the top of file
+let g:ale_python_flake8_options = "--ignore=E501,W503,E261,E241,E272,E402"
 
 " Language configuration
 let g:jedi#popup_on_dot = 0
