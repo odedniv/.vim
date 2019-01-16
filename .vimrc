@@ -61,6 +61,8 @@ set undofile
 
 colorscheme onedark
 let g:gruvbox_contrast_dark = 'hard'
+set guioptions-=m " remove menu
+set guioptions-=T " remove toolbar
 
 " Plugin configurations
 
