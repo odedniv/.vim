@@ -4,6 +4,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-fugitive' " Git
 Plug 'junegunn/vim-easy-align'
+Plug 'eugen0329/vim-esearch'
 "Plug 'tpope/vim-sleuth'
 " Theme
 Plug 'joshdick/onedark.vim'
@@ -17,7 +18,8 @@ Plug 'tmhedberg/SimpylFold' " Python folding
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'OrangeT/vim-csharp'
-Plug 'webastien/vim-ctags'
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()
 
@@ -61,7 +63,7 @@ set undofile
 
 colorscheme onedark
 let g:gruvbox_contrast_dark = 'hard'
-set guioptions-=m " remove menu
+set guioptions-=t " remove tearoff menu items
 set guioptions-=T " remove toolbar
 
 " Plugin configurations
@@ -102,6 +104,9 @@ let g:ale_linters = {
 let g:ale_python_flake8_options = "--ignore=E501,W503,E261,E241,E272,E402"
 
 " Language configuration
+
+let javaScript_fold=1
+
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 2
@@ -123,3 +128,7 @@ let g:ale_javascript_eslint_options = "--config ".$HOME."/.vim/.eslintrc.yml"
 
 let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = $HOME."/go/bin/goreturns"
+
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
