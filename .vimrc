@@ -20,6 +20,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'OrangeT/vim-csharp'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+Plug 'udalov/kotlin-vim'
 
 call plug#end()
 
